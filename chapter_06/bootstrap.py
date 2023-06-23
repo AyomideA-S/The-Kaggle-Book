@@ -9,7 +9,7 @@ def Bootstrap(n, n_iter=3, random_state=None):
     """
     if random_state:
         random.seed(random_state)
-    for j in range(n_iter):
-        bs = [random.randint(0, n-1) for i in range(n)]
-        out_bs = list({i for i in range(n)} - set(bs))
+    for _ in range(n_iter):
+        bs = [random.randint(0, n-1) for _ in range(n)]
+        out_bs = list(set(range(n)) - set(bs))
         yield bs, out_bs
